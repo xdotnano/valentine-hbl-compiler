@@ -40,6 +40,13 @@ if exist %pspdrive%:\ (
 echo PSP detected, copying files...
 ) ELSE (
 echo PSP not detected, skipping this step...
+goto A
+)
+if exist %pspdrive%:\hbl (
+echo HBL directory detected on your PSP, skipping this step: making directories...
+goto B
+) ELSE (
+echo HBL directory isn't detected on your PSP, creating directories for HBL...
 )
 md "%pspdrive%:\hbl"
 md "%pspdrive%:\hbl\config"
@@ -49,19 +56,21 @@ md "%pspdrive%:\hbl\tools"
 md "%pspdrive%:\hbl\tools\imports.config generator"
 md "%pspdrive%:\hbl\tools\libs generator"
 md "%pspdrive%:\hbl\tools\umem dumper"
+:B
+cd "%fsdir%\hbl\eLoader\config"
 COPY imports.config_6xx %pspdrive%:\hbl\config\imports.config_6xx /y
 COPY imports.config_50x %pspdrive%:\hbl\config\imports.config_50x /y
 COPY imports.config_550 %pspdrive%:\hbl\config\imports.config_550 /y
 COPY imports.config_555 %pspdrive%:\hbl\config\imports.config_555 /y
 COPY imports.config_570 %pspdrive%:\hbl\config\imports.config_570 /y
-cd %fsdir%\hbl\eLoader
+cd "%fsdir%\hbl\eLoader"
 XCOPY libs_6xx %pspdrive%:\hbl\libs_6xx /y /e
 XCOPY libs_5xx %pspdrive%:\hbl\libs_5xx /y /e
 XCOPY tools %pspdrive%:\hbl\tools /y /e
 COPY hbl.bin %pspdrive%:\hbl\hbl.bin /y
 COPY menu.bin %pspdrive%:\hbl\menu.bin /y
-COPY h.bin %pspdrive%:\ /y
-/pause
+COPY h.bin %pspdrive%:\h.bin /y
+pause
 :A
 cls
 echo ===============================================================================
