@@ -24,7 +24,7 @@ echo HBL directory detected, skipping SVN checkout, updating...
 goto C
 ) ELSE (
 echo HBL directory isn't detected, Svn checkout, you will see a Tortoise SVN window, please press enter or click on the ok button on it!
-TortoiseProc.exe /command:checkout /closeonend:1 /path:"%fsdir%" /url:http://valentine-hbl.google.com/svn/trunk
+TortoiseProc.exe /command:checkout /closeonend:1 /path:"%fsdir%/hbl" /url:http://valentine-hbl.googlecode.com/svn/trunk
 goto D
 )
 :C
