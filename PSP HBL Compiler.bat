@@ -80,7 +80,6 @@ XCOPY tools %pspdrive%:\hbl\tools /y /e
 COPY hbl.bin %pspdrive%:\hbl\hbl.bin /y
 COPY menu.bin %pspdrive%:\hbl\menu.bin /y
 COPY h.bin %pspdrive%:\h.bin /y
-pause
 :A
 cls
 echo ===============================================================================
