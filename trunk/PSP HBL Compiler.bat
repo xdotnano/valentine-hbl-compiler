@@ -43,6 +43,14 @@ set /p pspconnected=The files were succesfully updated and compiled. Is your PSP
 cd %fsdir%\hbl\eLoader\config
 if %pspconnected% == N goto A
 if %pspconnected% == n goto A
+md "%pspdrive%:\hbl"
+md "%pspdrive%:\hbl\config"
+md "%pspdrive%:\hbl\libs_6xx"
+md "%pspdrive%:\hbl\libs_5xx"
+md "%pspdrive%:\hbl\tools"
+md "%pspdrive%:\hbl\tools\imports.config generator"
+md "%pspdrive%:\hbl\tools\libs generator"
+md "%pspdrive%:\hbl\tools\umem dumper"
 COPY imports.config_6xx %pspdrive%:\hbl\config\imports.config_6xx /y
 COPY imports.config_50x %pspdrive%:\hbl\config\imports.config_50x /y
 COPY imports.config_550 %pspdrive%:\hbl\config\imports.config_550 /y
