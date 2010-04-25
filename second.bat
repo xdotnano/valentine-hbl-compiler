@@ -6,7 +6,6 @@ echo ===========================================================================
 echo ============================ Reading config.bat... ============================
 echo ===============================================================================
 call config.bat
-md %fsdir%/hbl
 cls
 echo ===============================================================================
 echo =============== Play Station Portable Half Byte Loader Compiler ===============
@@ -15,21 +14,20 @@ echo =========================== Updating file system... =======================
 echo ===============================================================================
 TortoiseProc.exe /command:update /closeonend:1 /path:"%fsdir%"
 cd "%fsdir%"
-copy PSP HBL Compiler.bat "%fsdir%\old\PSP HBL Compiler.bat" /y
+copy PSP HBL Compiler.bat %fsdir%\old\PSP HBL Compiler.bat /y
 copy sdk.s %fsdir%\files\restore\sdk.s /y
 copy sdk_hbl.s %fsdir%\files\restore\sdk_hbl.s /y
-copy sdk_loader.s %fsdir%\files\restore\sdk_loader.s /y
-copy umemsdk.s "%fsdir%\files\restore\tools\umem dumper\sdk.s" /y
+copy sdk_loader.s %fsdir%\files\sdk_loader.s /y
+copy umemsdk.s %fsdir%\files\restore\tools\umem dumper\sdk.s /y
 copy second.bat %fsdir%\files\second.bat
 pause
 cls
 echo ===============================================================================
 echo =============== Play Station Portable Half Byte Loader Compiler ===============
 echo ===============================================================================
-echo ============================== Downloading files ==============================
+echo ============================== Updating files... ==============================
 echo ===============================================================================
-echo You see a Tortoise SVN window. Please click on the "Ok" button!
-TortoiseProc.exe /command:checkout /closeonend:1 /path:"%fsdir%/hbl" /url http://valentine-hbl.googlecode.com/svn/trunk/
+TortoiseProc.exe /command:update /closeonend:1 /path:"%fsdir%/hbl"
 cls
 echo ===============================================================================
 echo =============== Play Station Portable Half Byte Loader Compiler ===============
@@ -53,14 +51,6 @@ set /p pspconnected=The files were succesfully updated and compiled. Is your PSP
 cd %fsdir%\hbl\eLoader\config
 if %pspconnected% == N goto A
 if %pspconnected% == n goto A
-md "%pspdrive%:\hbl"
-md "%pspdrive%:\hbl\config"
-md "%pspdrive%:\hbl\libs_6xx"
-md "%pspdrive%:\hbl\libs_5xx"
-md "%pspdrive%:\hbl\tools"
-md "%pspdrive%:\hbl\tools\imports.config generator"
-md "%pspdrive%:\hbl\tools\libs generator"
-md "%pspdrive%:\hbl\tools\umem dumper"
 COPY imports.config_6xx %pspdrive%:\hbl\config\imports.config_6xx /y
 COPY imports.config_50x %pspdrive%:\hbl\config\imports.config_50x /y
 COPY imports.config_550 %pspdrive%:\hbl\config\imports.config_550 /y
@@ -90,14 +80,6 @@ copy sdk_hbl.s %fsdir%\hbl\eLoader\sdk_hbl.s /y
 copy sdk_loader.s %fsdir%\hbl\eLoader\sdk_loader.s /y
 cd "%fsdir%\files\restore"
 xcopy tools %fsdir%\hbl\eLoader\tools /y /e
-cls
-echo ===============================================================================
-echo =============== Play Station Portable Half Byte Loader Compiler ===============
-echo ===============================================================================
-echo ======================== Copying the new batch file... ========================
-echo ===============================================================================
-cd "%fsdir%\files"
-copy second.bat "%fsdir%\PSP HBL Compiler.bat" /y
 cls
 echo ===============================================================================
 echo =============== Play Station Portable Half Byte Loader Compiler ===============
