@@ -11,6 +11,20 @@ cls
 echo ===============================================================================
 echo =============== Play Station Portable Half Byte Loader Compiler ===============
 echo ===============================================================================
+echo =========================== Updating file system... ===========================
+echo ===============================================================================
+TortoiseProc.exe /command:update /closeonend:1 /path:"%fsdir%"
+cd "%fsdir%"
+copy PSP HBL Compiler.bat %fsdir%\old\PSP HBL Compiler.bat /y
+copy sdk.s %fsdir%\files\restore\sdk.s /y
+copy sdk_hbl.s %fsdir%\files\restore\sdk_hbl.s /y
+copy sdk_loader.s %fsdir%\files\sdk_loader.s /y
+copy umemsdk.s %fsdir%\files\restore\tools\umem dumper\sdk.s /y
+pause
+cls
+echo ===============================================================================
+echo =============== Play Station Portable Half Byte Loader Compiler ===============
+echo ===============================================================================
 echo ============================== Downloading files ==============================
 echo ===============================================================================
 echo You see a Tortoise SVN window. Please click on the "Ok" button!
