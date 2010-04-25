@@ -19,18 +19,17 @@ echo =============== Play Station Portable Half Byte Loader Compiler ===========
 echo ===============================================================================
 echo ============================== Updating files... ==============================
 echo ===============================================================================
-if exist %fsdir%:\hbl (
+if exist %fsdir%\hbl (
 echo HBL directory detected, skipping SVN checkout, updating...
 goto C
 ) ELSE (
-echo HBL directory isn't detected, Svn checkout, you will see a Tortoise SVN window, please press enter or click on the ok button on it!
+echo HBL directory isn't detected, SVN checkout started: You will see a Tortoise SVN window, please press enter or click on the ok button on it!
 TortoiseProc.exe /command:checkout /closeonend:1 /path:"%fsdir%/hbl" /url:http://valentine-hbl.googlecode.com/svn/trunk
 goto D
 )
 :C
 TortoiseProc.exe /command:update /closeonend:1 /path:"%fsdir%/hbl"
 :D
-pause
 cls
 echo ===============================================================================
 echo =============== Play Station Portable Half Byte Loader Compiler ===============
@@ -89,7 +88,7 @@ echo =============== Play Station Portable Half Byte Loader Compiler ===========
 echo ===============================================================================
 echo ============================== Cleaning files... ==============================
 echo ===============================================================================
-del "%fsdir%\hbl\eLoader"
+del "%fsdir%\hbl\eLoader" /q
 cls
 echo ===============================================================================
 echo =============== Play Station Portable Half Byte Loader Compiler ===============
