@@ -21,7 +21,7 @@ echo ===========================================================================
 echo ============================== Downloading files ==============================
 echo ===============================================================================
 echo You see a Tortoise SVN window. Please click on the "Ok" button!
-TortoiseProc.exe /command:checkout /closeonend:1 /path:"%fsdir%/hbl" /url http://valentine-hbl.googlecode.com/svn/trunk/
+TortoiseProc.exe /command:checkout /closeonend:1 /path:"%fsdir%/hbl" /url: http://valentine-hbl.googlecode.com/svn/trunk/
 cls
 echo ===============================================================================
 echo =============== Play Station Portable Half Byte Loader Compiler ===============
