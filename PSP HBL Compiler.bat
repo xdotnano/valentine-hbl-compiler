@@ -19,7 +19,18 @@ echo =============== Play Station Portable Half Byte Loader Compiler ===========
 echo ===============================================================================
 echo ============================== Updating files... ==============================
 echo ===============================================================================
+if exist %fsdir%:\hbl (
+echo HBL directory detected, skipping SVN checkout, updating...
+goto C
+) ELSE (
+echo HBL directory isn't detected, Svn checkout, you will see a Tortoise SVN window, please press enter or click on the ok button on it!
+TortoiseProc.exe /command:checkout /closeonend:1 /path:"%fsdir%" /url:http://valentine-hbl.google.com/svn/trunk
+goto D
+)
+:C
 TortoiseProc.exe /command:update /closeonend:1 /path:"%fsdir%/hbl"
+:D
+pause
 cls
 echo ===============================================================================
 echo =============== Play Station Portable Half Byte Loader Compiler ===============
@@ -30,7 +41,6 @@ cd %fsdir%\hbl\eLoader
 make
 cd %fsdir%\hbl\eLoader\tools\umem dumper
 make
-pause
 cls
 echo ===============================================================================
 echo =============== Play Station Portable Half Byte Loader Compiler ===============
@@ -79,16 +89,7 @@ echo =============== Play Station Portable Half Byte Loader Compiler ===========
 echo ===============================================================================
 echo ============================== Cleaning files... ==============================
 echo ===============================================================================
-cd "%fsdir%\hbl\eLoader\"
-make clean
-cd "%fsdir%\hbl\eLoader\tools\umem dumper"
-make clean
-cd "%fsdir%\files\restore"
-copy sdk.s %fsdir%\hbl\eLoader\sdk.s /y
-copy sdk_hbl.s %fsdir%\hbl\eLoader\sdk_hbl.s /y
-copy sdk_loader.s %fsdir%\hbl\eLoader\sdk_loader.s /y
-cd "%fsdir%\files\restore"
-xcopy tools %fsdir%\hbl\eLoader\tools /y /e
+del "%fsdir%\hbl\eLoader"
 cls
 echo ===============================================================================
 echo =============== Play Station Portable Half Byte Loader Compiler ===============
