@@ -34,15 +34,13 @@ cls
 echo ===============================================================================
 echo =============== Play Station Portable Half Byte Loader Compiler ===============
 echo ===============================================================================
-echo ================================ Copying files ================================
+echo ========== Detecting PSP and copying files if the PSP is detected... ==========
 echo ===============================================================================
-echo Type in Y and then press enter is your answer is yes
-echo Type in N and then press enter is your answer is no
-echo ===============================================================================
-set /p pspconnected=The files were succesfully updated and compiled. Is your PSP connected to your PC? Please type in your answer and then press enter: 
-cd %fsdir%\hbl\eLoader\config
-if %pspconnected% == N goto A
-if %pspconnected% == n goto A
+if exist %pspdrive%:\ (
+echo PSP detected, copying files...
+) ELSE (
+echo PSP not detected, skipping this step...
+)
 md "%pspdrive%:\hbl"
 md "%pspdrive%:\hbl\config"
 md "%pspdrive%:\hbl\libs_6xx"
@@ -63,6 +61,7 @@ XCOPY tools %pspdrive%:\hbl\tools /y /e
 COPY hbl.bin %pspdrive%:\hbl\hbl.bin /y
 COPY menu.bin %pspdrive%:\hbl\menu.bin /y
 COPY h.bin %pspdrive%:\ /y
+/pause
 :A
 cls
 echo ===============================================================================
