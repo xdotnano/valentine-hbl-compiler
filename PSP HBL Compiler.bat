@@ -85,7 +85,7 @@ if exist "%fsdir%\Compiled HBL" (
 echo Compiled HBL directory detected, skipping this step: make Compiled HBL directory...
 ) ELSE (
 echo Compiled HBL directory isn't detected, making Compiled HBL directory...
-md "%fsdir%"\Compiled HBL"
+md "%fsdir%\Compiled HBL"
 md "%fsdir%\Compiled HBL\hbl"
 md "%fsdir%\Compiled HBL\hbl\config"
 md "%fsdir%\Compiled HBL\hbl\libs_6xx"

@@ -52,6 +52,9 @@
 |If you want to update and compile PSP HBL (and copy the HBL's files to your PSP), you need to |
 |run PSP HBL Compiler.bat                                                                      |
 |                                                                                              |
+|If you want to copy the compiled files to your PSP manually without PSP HBL Compiler.bat, you |
+|have to copy the files inside the Compiled HBL directory to your PSP's root                   |
+|                                                                                              |
 ================================================================================================
  ==============================================================================================
    ==========================================================================================
