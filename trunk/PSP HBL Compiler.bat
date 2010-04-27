@@ -34,7 +34,6 @@ md "%fsdir%\Temporary"
 md "%fsdir%\Temporary\eLoader"
 cd "%fsdir%\Temporary"
 xcopy "%fsdir%\hbl\eLoader" eLoader /y /e
-)
 cls
 echo ===============================================================================
 echo =============== Play Station Portable Half Byte Loader Compiler ===============
@@ -120,11 +119,10 @@ echo =============== Play Station Portable Half Byte Loader Compiler ===========
 echo ===============================================================================
 echo ============================== Cleaning files... ==============================
 echo ===============================================================================
-del "%fsdir%\hbl\eLoader" /q
+rd "%fsdir%\hbl\eLoader" /s /q
 md "%fsdir%\HBL\eLoader"
-cd "%fsdir%\HBL"
-xcopy "%fsdir%\Temporary\eLoader eLoader" /y /e
-del "%fsdir%\Temporary" /q
+cd "%fsdir%\Temporary"
+xcopy eLoader "%fsdir%\HBL\eLoader" /y /e
 cls
 echo ===============================================================================
 echo =============== Play Station Portable Half Byte Loader Compiler ===============
