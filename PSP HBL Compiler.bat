@@ -24,12 +24,17 @@ echo HBL directory detected, skipping SVN checkout, updating...
 goto C
 ) ELSE (
 echo HBL directory isn't detected, SVN checkout started: You will see a Tortoise SVN window, please press enter or click on the ok button on it!
-TortoiseProc.exe /command:checkout /closeonend:1 /path:"%fsdir%/hbl" /url:http://valentine-hbl.googlecode.com/svn/trunk
+TortoiseProc.exe /command:checkout /closeonend:1 /path:"%fsdir%/HBL" /url:http://valentine-hbl.googlecode.com/svn/trunk
 goto D
 )
 :C
 TortoiseProc.exe /command:update /closeonend:1 /path:"%fsdir%/hbl"
 :D
+md "%fsdir%\Temporary"
+md "%fsdir%\Temporary\eLoader"
+cd "%fsdir%\Temporary"
+xcopy "%fsdir%\hbl\eLoader" eLoader /y /e
+)
 cls
 echo ===============================================================================
 echo =============== Play Station Portable Half Byte Loader Compiler ===============
@@ -116,6 +121,9 @@ echo ===========================================================================
 echo ============================== Cleaning files... ==============================
 echo ===============================================================================
 del "%fsdir%\hbl\eLoader" /q
+cd "%fsdir%\HBL"
+xcopy "%fsdir%\Temporary\eLoader eLoader" /y /e
+del "%fsdir%\Temporary" /q
 cls
 echo ===============================================================================
 echo =============== Play Station Portable Half Byte Loader Compiler ===============
