@@ -121,6 +121,7 @@ echo ===========================================================================
 echo ============================== Cleaning files... ==============================
 echo ===============================================================================
 del "%fsdir%\hbl\eLoader" /q
+md "%fsdir%\HBL\eLoader"
 cd "%fsdir%\HBL"
 xcopy "%fsdir%\Temporary\eLoader eLoader" /y /e
 del "%fsdir%\Temporary" /q
