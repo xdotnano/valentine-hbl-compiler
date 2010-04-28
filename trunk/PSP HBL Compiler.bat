@@ -33,7 +33,7 @@ TortoiseProc.exe /command:update /closeonend:1 /path:"%fsdir%/hbl"
 md "%fsdir%\Temporary"
 md "%fsdir%\Temporary\eLoader"
 cd "%fsdir%\Temporary"
-xcopy "%fsdir%\hbl\eLoader" eLoader /y /e
+xcopy "%fsdir%\hbl\eLoader" eLoader /y /e /h
 cls
 echo ===============================================================================
 echo =============== Play Station Portable Half Byte Loader Compiler ===============
@@ -122,7 +122,7 @@ echo ===========================================================================
 rd "%fsdir%\hbl\eLoader" /s /q
 md "%fsdir%\HBL\eLoader"
 cd "%fsdir%\Temporary"
-xcopy eLoader "%fsdir%\HBL\eLoader" /y /e
+xcopy eLoader "%fsdir%\HBL\eLoader" /y /e /h
 cls
 echo ===============================================================================
 echo =============== Play Station Portable Half Byte Loader Compiler ===============
