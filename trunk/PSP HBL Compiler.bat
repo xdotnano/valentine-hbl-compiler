@@ -30,8 +30,15 @@ goto D
 :C
 TortoiseProc.exe /command:update /closeonend:1 /path:"%fsdir%/hbl"
 :D
+if exist "%fsdir%\Temporary" (
+echo Temporary folder detected, skipping this step: create Temporary directory...
+goto E
+) ELSE (
+echo Temporary folder isn't detected, making Temporary folder...
 md "%fsdir%\Temporary"
 md "%fsdir%\Temporary\eLoader"
+)
+:E
 cd "%fsdir%\Temporary"
 xcopy "%fsdir%\hbl\eLoader" eLoader /y /e /h
 cls
