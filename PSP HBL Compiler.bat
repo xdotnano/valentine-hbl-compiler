@@ -12,7 +12,8 @@ echo =============== Play Station Portable Half Byte Loader Compiler ===========
 echo ===============================================================================
 echo =========================== Updating file system... ===========================
 echo ===============================================================================
-TortoiseProc.exe /command:update /closeonend:1 /path:"%fsdir%"
+cd "%fsdir%"
+"%fsdir%\Subversion Client\svn.exe" up
 cls
 echo ===============================================================================
 echo =============== Play Station Portable Half Byte Loader Compiler ===============
@@ -23,12 +24,16 @@ if exist %fsdir%\hbl (
 echo HBL directory detected, skipping SVN checkout, updating...
 goto C
 ) ELSE (
-echo HBL directory isn't detected, SVN checkout started: You will see a Tortoise SVN window, please press enter or click on the ok button on it!
-TortoiseProc.exe /command:checkout /closeonend:1 /path:"%fsdir%/HBL" /url:http://valentine-hbl.googlecode.com/svn/trunk
+echo HBL directory isn't detected, SVN checkout started
+md "%fsdir%\HBL"
+cd "%fsdir%\Subversion Client"
+"%fsdir%\Subversion Client\svn.exe" co http://valentine-hbl.googlecode.com/svn/trunk
+xcopy trunk "%fsdir%\HBL" /y /e /h
 goto D
 )
 :C
-TortoiseProc.exe /command:update /closeonend:1 /path:"%fsdir%/hbl"
+cd "%fsdir%/hbl"
+"%fsdir%\Subversion Client\svn.exe" up
 :D
 if exist "%fsdir%\Temporary" (
 echo Temporary folder detected, skipping this step: create Temporary directory...
@@ -69,7 +74,7 @@ goto B
 ) ELSE (
 echo HBL directory isn't detected on your PSP, creating directories for HBL...
 )
-md "%pspdrive%:\hbl"
+md "%pspdrive%:\HBL"
 md "%pspdrive%:\hbl\config"
 md "%pspdrive%:\hbl\libs_6xx"
 md "%pspdrive%:\hbl\libs_5xx"
