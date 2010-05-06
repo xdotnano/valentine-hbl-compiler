@@ -13,7 +13,7 @@ echo ===========================================================================
 echo ============================ Downloading PSPSDK... ============================
 echo ===============================================================================
 cd "%fsdir%"
-"%fsdir%\Subversion Client\svn.exe" co http://valentine-hbl.googlecode.com/svn/trunk
+"%fsdir%\Subversion Client\svn.exe" co http://pspsdk.googlecode.com/svn/trunk
 cd "%fsdir%\trunk"
 copy "PSPSDK Installer.exe" "%fsdir%\PSPSDK Installer.exe"
 cls
@@ -23,7 +23,8 @@ echo ===========================================================================
 echo ============================== Installing PSPSDK ==============================
 echo ===============================================================================
 "%fsdir%\PSPSDK Installer.exe"
-rmdir "%fsdir%\trunk" /s /q
+cd "%fsdir%"
+rmdir "trunk" /s /q
 cls
 echo ===============================================================================
 echo =============== Play Station Portable Half Byte Loader Compiler ===============
