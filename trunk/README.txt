@@ -13,7 +13,7 @@
 ================================================================================================
 |                                                                                              |
 |Notes:                                                                                        |
-|-You need to download and install PSPSDK from http://sourceforge.net/projects/minpspw/        |
+|-You need to download and install PSPSDK by running Download and install PSPSDK.bat           |
 |-This file system don't include the Patapon 2 Demo or the Patapon 2 Demo savefile. You need   |
 | to download and put them manually to your PSP                                                |
 |                                                                                              |
@@ -26,14 +26,17 @@
 |                                                                                              |
 |How to "install" PSP HBL Compiler                                                             |
 |                                                                                              |
+|0.  If you weren't installed PSPSDK, download and install it by running Download and install  |
+|    PSPSDK.bat                                                                                |
+|                                                                                              |
 |1.  Open the directory where you extracted the PSP HBL Compiler's files (where the files      |
 |    directory, old directory, etc. located)                                                   |
 |                                                                                              |
 |2.  Copy the directory's path (Ctrl+C) (example: C:/PspHblFileSystem)                         |
 |                                                                                              |
 |3.  Right click on config.bat ==> Edit ==> Replace C:\PspHblFileSystem with your copied path  |
-|   (step 2) (good examples: C:\psp or E:\hbl) (bad examples: C or C:/hbl or C/hbloader or     |
-|   D\hbl), save it (File ==> Save) and then close it                                          |
+|    (step 2) (good examples: C:\psp or E:\hbl) (bad examples: C or C:/hbl or C/hbloader or    |
+|    D\hbl), save it (File ==> Save) and then close it                                         |
 |                                                                                              |
 |4.  Right click on config.bat ==> Edit ==> Replace E (your PSP's drive letter) with your PSP's|
 |    drive letter (good examples: F or h) (bad examples: D: or E:\ or I:/ or F/ or F\ or       |
