@@ -1,0 +1,10 @@
+prefix=/home/Paulo/minpspw/devpaks/039_zziplib/build/zziplib/../target/psp
+libdir=/home/Paulo/minpspw/devpaks/039_zziplib/build/zziplib/../target/psp/lib
+includedir=/home/Paulo/minpspw/devpaks/039_zziplib/build/zziplib/../target/psp/include
+ 
+Name: zzipwrap
+Version: 0.13.38
+Description: Callback Wrappers for ZZipLib
+Requires: zziplib
+Libs: -L${libdir} -lzzipwrap
+Cflags: -I${includedir}
