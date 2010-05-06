@@ -14,8 +14,6 @@
 |                                                                                              |
 |Notes:                                                                                        |
 |-You need to download and install PSPSDK from http://sourceforge.net/projects/minpspw/        |
-|-You need to download and install Tortoise SVN from http://tortoisesvn.net/downloads          |
-|-After you installed Tortoise SVN, you need to restart your computer to finish the install    |
 |-This file system don't include the Patapon 2 Demo or the Patapon 2 Demo savefile. You need   |
 | to download and put them manually to your PSP                                                |
 |                                                                                              |
