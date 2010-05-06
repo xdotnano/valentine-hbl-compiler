@@ -53,9 +53,9 @@ echo ===========================================================================
 echo =============================== Compiling files ===============================
 echo ===============================================================================
 cd %fsdir%\hbl\eLoader
-"%fsdir%\PSPSDK\make.exe"
+"%fsdir%\PSPSDK\bin\make.exe"
 cd %fsdir%\hbl\eLoader\tools\umem dumper
-"%fsdir%\PSPSDK\make.exe"
+"%fsdir%\PSPSDK\bin\make.exe"
 cls
 echo ===============================================================================
 echo =============== Play Station Portable Half Byte Loader Compiler ===============
