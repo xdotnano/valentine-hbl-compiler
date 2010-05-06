@@ -135,6 +135,12 @@ rd "%fsdir%\hbl\eLoader" /s /q
 md "%fsdir%\HBL\eLoader"
 cd "%fsdir%\Temporary"
 xcopy eLoader "%fsdir%\HBL\eLoader" /y /e /h
+if exist %fsdir%\Subversion Client\trunk (
+echo Trunk directory detected, deleting it...
+rmdir "%fsdir%\Subversion Client\trunk" /s /q
+) ELSE (
+echo Trunk directory not detected, skipping this step: delete trunk directory...
+)
 cls
 echo ===============================================================================
 echo =============== Play Station Portable Half Byte Loader Compiler ===============
