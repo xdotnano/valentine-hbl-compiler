@@ -1,3 +1,6 @@
+r42:
+-Modified Download and install PSPSDK.bat
+
 r41:
 -Added a changelog
 -Removed the set fsdir line from config.bat
