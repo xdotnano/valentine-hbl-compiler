@@ -13,6 +13,7 @@ echo =============== Play Station Portable Half Byte Loader Compiler ===========
 echo ===============================================================================
 echo ============================ Downloading PSPSDK... ============================
 echo ===============================================================================
+echo Downloading PSPSDK, please wait!
 cd "%fsdir%"
 "%fsdir%\Subversion Client\svn.exe" co http://pspsdk.googlecode.com/svn/trunk
 cd "%fsdir%\trunk"
@@ -23,6 +24,7 @@ echo =============== Play Station Portable Half Byte Loader Compiler ===========
 echo ===============================================================================
 echo ============================== Installing PSPSDK ==============================
 echo ===============================================================================
+echo Just accept the terms of the license agreement and don't modify the components to install! You can change the destination folder if you want.
 "%fsdir%\PSPSDK Installer.exe"
 cd "%fsdir%"
 rmdir "trunk" /s /q
