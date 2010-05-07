@@ -56,7 +56,6 @@ cd %fsdir%\hbl\eLoader
 make
 cd %fsdir%\hbl\eLoader\tools\umem dumper
 make
-pause
 cls
 echo ===============================================================================
 echo =============== Play Station Portable Half Byte Loader Compiler ===============
