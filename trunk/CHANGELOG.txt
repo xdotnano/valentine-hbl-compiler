@@ -1,0 +1,4 @@
+r41:
+-Added a changelog
+-Removed the set fsdir line from config.bat
+-Added directory-analizer to Download and install PSPSDK.bat and to PSP HBL Compiler.bat
