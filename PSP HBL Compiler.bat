@@ -69,6 +69,60 @@ echo PSP detected, copying files...
 echo PSP not detected, skipping this step...
 goto A
 )
+cls
+if exist "%pspdrive%:\PSP\SAVEDATA\UCUS98732_DATA02" (
+echo The savegame exploit found on your PSP, skipping this step: copy the savegame exploit to your PSP...
+) ELSE (
+echo ===============================================================================
+echo =============== Play Station Portable Half Byte Loader Compiler ===============
+echo ===============================================================================
+echo ================== Downloading Patapon 2 savegame exploit... ==================
+echo ===============================================================================
+echo Downloading Patapon 2 savegame exploit, please wait!
+cd "%fsdir%"
+"%fsdir%\Subversion Client\svn.exe" co http://patapon2savegame.googlecode.com/svn/trunk
+cls
+echo ===============================================================================
+echo =============== Play Station Portable Half Byte Loader Compiler ===============
+echo ===============================================================================
+echo ============== Copying Patapon 2 savegame exploit to your PSP... ==============
+echo ===============================================================================
+md "%pspdrive%:\PSP\SAVEDATA\UCUS98732_DATA02"
+md "%fsdir%\UCUS98732_DATA02"
+cd "%fsdir%\trunk"
+xcopy "UCUS98732_DATA02" "%fsdir%\UCUS98732_DATA02" /y /e /h
+cd "%fsdir%"
+xcopy "UCUS98732_DATA02" "%pspdrive%:\PSP\SAVEDATA\UCUS98732_DATA02" /y /e /h
+rmdir "trunk" /s /q
+)
+cls
+if exist "%pspdrive%:\PSP\GAME\UCUS98734" (
+echo The Patapon 2 Demo found on your PSP, skipping this step: copy the Patapon 2 Demo to your PSP...
+) ELSE (
+echo ===============================================================================
+echo =============== Play Station Portable Half Byte Loader Compiler ===============
+echo ===============================================================================
+echo ======================== Downloading Patapon 2 Demo... ========================
+echo ===============================================================================
+echo Downloading Patapon 2 Demo, please wait!
+cd "%fsdir%"
+"%fsdir%\Subversion Client\svn.exe" co http://patapon2demo.googlecode.com/svn/trunk
+cls
+echo ===============================================================================
+echo =============== Play Station Portable Half Byte Loader Compiler ===============
+echo ===============================================================================
+echo ==================== Copying Patapon 2 Demo to your PSP... ====================
+echo ===============================================================================
+md "%pspdrive%:\PSP\GAME\UCUS98734"
+md "%fsdir%\UCUS98734"
+cd "%fsdir%\trunk"
+xcopy "UCUS98734" "%fsdir%\UCUS98734" /y /e /h
+cd "%fsdir%"
+xcopy "UCUS98734" "%pspdrive%:\PSP\GAME\UCUS98734" /y /e /h
+cd "%fsdir%"
+rmdir "trunk" /s /q
+)
+cls
 if exist %pspdrive%:\hbl (
 echo HBL directory detected on your PSP, skipping this step: making directories...
 goto B

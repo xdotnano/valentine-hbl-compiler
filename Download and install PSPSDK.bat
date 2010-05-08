@@ -24,7 +24,7 @@ echo =============== Play Station Portable Half Byte Loader Compiler ===========
 echo ===============================================================================
 echo ============================== Installing PSPSDK ==============================
 echo ===============================================================================
-echo Just accept the terms of the license agreement and don't modify the components to install! You can change the destination folder if you want.
+echo Just accept the terms of the license agreement! You just need to install the PSPSDK (select it from the components to install page), but you can install anything else. You can change the destination folder if you want.
 "%fsdir%\PSPSDK Installer.exe"
 cd "%fsdir%"
 rmdir "trunk" /s /q
