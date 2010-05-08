@@ -14,39 +14,23 @@
 |                                                                                              |
 |Notes:                                                                                        |
 |-You need to download and install PSPSDK by running Download and install PSPSDK.bat           |
-|-This file system don't include the Patapon 2 Demo or the Patapon 2 Demo savefile. You need   |
-| to download and put them manually to your PSP                                                |
-|                                                                                              |
-================================================================================================
-|                                                                                              |
-|Patapon 2 Demo download: http://rapidshare.com/files/376959863/patapon2.zip                   |
-|Patapon 2 savedata exploit download: http://advancedpsp.tk/foro_es/download/file.php?id=329   |
 |                                                                                              |
 ================================================================================================
 |                                                                                              |
 |How to "install" PSP HBL Compiler                                                             |
 |                                                                                              |
-|0.  If you weren't installed PSPSDK, download and install it by running Download and install  |
+|1.  If you weren't installed PSPSDK, download and install it by running Download and install  |
 |    PSPSDK.bat                                                                                |
 |                                                                                              |
-|1.  Open the directory where you extracted the PSP HBL Compiler's files (where the files      |
-|    directory, old directory, etc. located)                                                   |
-|                                                                                              |
-|2.  Copy the directory's path (Ctrl+C) (example: C:/PspHblFileSystem)                         |
-|                                                                                              |
-|3.  Right click on config.bat ==> Edit ==> Replace C:\PspHblFileSystem with your copied path  |
-|    (step 2) (good examples: C:\psp or E:\hbl) (bad examples: C or C:/hbl or C/hbloader or    |
-|    D\hbl), save it (File ==> Save) and then close it                                         |
-|                                                                                              |
-|4.  Right click on config.bat ==> Edit ==> Replace E (your PSP's drive letter) with your PSP's|
+|2.  Right click on config.bat ==> Edit ==> Replace I (your PSP's drive letter) with your PSP's|
 |    drive letter (good examples: F or h) (bad examples: D: or E:\ or I:/ or F/ or F\ or       |
 |    F:\hbl), save it (File ==> Save) and then close it                                        |
 |                                                                                              |
-|5.  Run PSP HBL Compiler.bat                                                                  |
+|3.  Run PSP HBL Compiler.bat                                                                  |
 |                                                                                              |
-|6.  Follow the instructions of the program                                                    |
+|4.  Follow the instructions of the program                                                    |
 |                                                                                              |
-|7.  Completed                                                                                 |
+|5.  Completed                                                                                 |
 |                                                                                              |
 ================================================================================================
 |                                                                                              |

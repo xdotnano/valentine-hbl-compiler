@@ -1,3 +1,8 @@
+r43:
+-Modified Download and install PSPSDK.bat
+-Modified README.txt
+-If you haven't got the Patapon 2 Demo or the Patapon 2 savegame exploit, the PSP HBL Compiler.bat will download it!
+
 r42:
 -Modified Download and install PSPSDK.bat
 
