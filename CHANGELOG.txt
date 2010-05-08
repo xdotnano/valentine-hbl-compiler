@@ -1,3 +1,6 @@
+r44:
+-Modified PSP HBL Compiler.bat
+
 r43:
 -Modified Download and install PSPSDK.bat
 -Modified README.txt

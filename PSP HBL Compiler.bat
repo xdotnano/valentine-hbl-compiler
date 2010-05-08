@@ -123,12 +123,16 @@ cd "%fsdir%"
 rmdir "trunk" /s /q
 )
 cls
+echo ===============================================================================
+echo =============== Play Station Portable Half Byte Loader Compiler ===============
+echo ===============================================================================
+echo =========================== Copying HBL to your PSP ===========================
+echo ===============================================================================
 if exist %pspdrive%:\hbl (
 echo HBL directory detected on your PSP, skipping this step: making directories...
 goto B
 ) ELSE (
 echo HBL directory isn't detected on your PSP, creating directories for HBL...
-)
 md "%pspdrive%:\HBL"
 md "%pspdrive%:\hbl\config"
 md "%pspdrive%:\hbl\libs_6xx"
@@ -137,6 +141,7 @@ md "%pspdrive%:\hbl\tools"
 md "%pspdrive%:\hbl\tools\imports.config generator"
 md "%pspdrive%:\hbl\tools\libs generator"
 md "%pspdrive%:\hbl\tools\umem dumper"
+)
 :B
 cd "%fsdir%\hbl\eLoader\config"
 COPY imports.config_6xx %pspdrive%:\hbl\config\imports.config_6xx /y
