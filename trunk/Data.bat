@@ -50,6 +50,8 @@ echo =============== Play Station Portable Half Byte Loader Compiler ===========
 echo ===============================================================================
 echo ========== Detecting PSP and copying files if the PSP is detected... ==========
 echo ===============================================================================
+if %pspdrive% == pspdriveletter set /p pspdrive=Please type in your PSP's drive letter and then press enter (if your PSP isn't connected, just type in 0): 
+if %pspdrive% == 0 Goto A
 if exist %pspdrive%:\ (
 echo PSP detected, copying files...
 ) ELSE (
