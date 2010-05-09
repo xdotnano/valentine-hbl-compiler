@@ -1,3 +1,7 @@
+r46:
+-Modified config.bat
+-Modified Data.bat
+
 r45:
 -Splitted PSP HBL Compiler.bat to PSP HBL Compiler.bat and Data.bat
 
