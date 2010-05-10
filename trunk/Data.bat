@@ -24,6 +24,12 @@ goto D
 cd "%fsdir%/hbl"
 "%fsdir%\Subversion Client\svn.exe" up
 :D
+if exist "%fsdir%\Temporary" (
+echo Temporary directory detected, skipping this step: create temporary folder...
+) else (
+echo Temporary folder not detected, creating it...
+md "%fsdir%\Temporary"
+)
 cd "%fsdir%\Temporary"
 xcopy "%fsdir%\hbl\eLoader" eLoader /y /e /h /i
 cls
