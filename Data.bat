@@ -3,6 +3,7 @@ color 0A
 if %ndowt% == 10 goto X
 exit
 :X
+cls
 echo ===============================================================================
 echo =============== Play Station Portable Half Byte Loader Compiler ===============
 echo ===============================================================================
@@ -14,7 +15,7 @@ goto C
 ) ELSE (
 echo HBL directory isn't detected, SVN checkout started
 md "%fsdir%\HBL"
-cd "%fsdir%\Subversion Client"
+cd "%fsdir%"
 "%fsdir%\Subversion Client\svn.exe" co http://valentine-hbl.googlecode.com/svn/trunk
 xcopy trunk "%fsdir%\HBL" /y /e /h
 goto D
@@ -23,27 +24,38 @@ goto D
 cd "%fsdir%/hbl"
 "%fsdir%\Subversion Client\svn.exe" up
 :D
-if exist "%fsdir%\Temporary" (
-echo Temporary folder detected, skipping this step: create Temporary directory...
-goto E
-) ELSE (
-echo Temporary folder isn't detected, making Temporary folder...
-md "%fsdir%\Temporary"
-md "%fsdir%\Temporary\eLoader"
-)
-:E
 cd "%fsdir%\Temporary"
-xcopy "%fsdir%\hbl\eLoader" eLoader /y /e /h
+xcopy "%fsdir%\hbl\eLoader" eLoader /y /e /h /i
+cls
+echo ===============================================================================
+echo =============== Play Station Portable Half Byte Loader Compiler ===============
+echo ===============================================================================
+echo =============================== Select version! ===============================
+echo ===============================================================================
+if %hblversion% == 1 goto Y
+if %hblversion% == 2 goto Y
+:Z
+echo What type of HBL do you want?
+echo 1: Development version (recommended)
+echo 2: End user version
+set /p hblversion=Please type in 1 or 2: 
+if %hblversion% == 1 goto Y
+if %hblversion% == 2 goto Y
+cls
+echo Invalid answer, please try again!
+echo.
+goto Z
+:Y
+if %hblversion% == 1 set version=make
+if %hblversion% == 2 set version=make distrib
 cls
 echo ===============================================================================
 echo =============== Play Station Portable Half Byte Loader Compiler ===============
 echo ===============================================================================
 echo =============================== Compiling files ===============================
 echo ===============================================================================
-cd %fsdir%\hbl\eLoader
-make
-cd %fsdir%\hbl\eLoader\tools\umem dumper
-make
+cd %fsdir%\HBL\eLoader
+%version%
 cls
 echo ===============================================================================
 echo =============== Play Station Portable Half Byte Loader Compiler ===============
@@ -117,76 +129,37 @@ echo =============== Play Station Portable Half Byte Loader Compiler ===========
 echo ===============================================================================
 echo =========================== Copying HBL to your PSP ===========================
 echo ===============================================================================
-if exist %pspdrive%:\hbl (
-echo HBL directory detected on your PSP, skipping this step: making directories...
-goto B
-) ELSE (
-echo HBL directory isn't detected on your PSP, creating directories for HBL...
-md "%pspdrive%:\HBL"
-md "%pspdrive%:\hbl\config"
-md "%pspdrive%:\hbl\libs_6xx"
-md "%pspdrive%:\hbl\libs_5xx"
-md "%pspdrive%:\hbl\tools"
-md "%pspdrive%:\hbl\tools\imports.config generator"
-md "%pspdrive%:\hbl\tools\libs generator"
-md "%pspdrive%:\hbl\tools\umem dumper"
-)
-:B
-cd "%fsdir%\hbl\eLoader\config"
-COPY imports.config_6xx %pspdrive%:\hbl\config\imports.config_6xx /y
-COPY imports.config_50x %pspdrive%:\hbl\config\imports.config_50x /y
-COPY imports.config_550 %pspdrive%:\hbl\config\imports.config_550 /y
-COPY imports.config_555 %pspdrive%:\hbl\config\imports.config_555 /y
-COPY imports.config_570 %pspdrive%:\hbl\config\imports.config_570 /y
 cd "%fsdir%\hbl\eLoader"
-XCOPY libs_6xx %pspdrive%:\hbl\libs_6xx /y /e
-XCOPY libs_5xx %pspdrive%:\hbl\libs_5xx /y /e
-XCOPY tools %pspdrive%:\hbl\tools /y /e
-COPY hbl.bin %pspdrive%:\hbl\hbl.bin /y
-COPY menu.bin %pspdrive%:\hbl\menu.bin /y
-COPY h.bin %pspdrive%:\h.bin /y
+xcopy config %pspdrive%:\HBL\config /y /e /i
+XCOPY libs_6xx %pspdrive%:\HBL\libs_6xx /y /e /i
+XCOPY libs_5xx %pspdrive%:\HBL\libs_5xx /y /e /i
+XCOPY tools %pspdrive%:\HBL\tools /y /e /i
+COPY hbl.bin %pspdrive%:\HBL\hbl.bin /y /v
+COPY menu.bin %pspdrive%:\HBL\menu.bin /y /v
+COPY h.bin %pspdrive%:\h.bin /y /v
 :A
-if exist "%fsdir%\Compiled HBL" (
-echo Compiled HBL directory detected, skipping this step: make Compiled HBL directory...
-) ELSE (
-echo Compiled HBL directory isn't detected, making Compiled HBL directory...
-md "%fsdir%\Compiled HBL"
-md "%fsdir%\Compiled HBL\hbl"
-md "%fsdir%\Compiled HBL\hbl\config"
-md "%fsdir%\Compiled HBL\hbl\libs_6xx"
-md "%fsdir%\Compiled HBL\hbl\libs_5xx"
-md "%fsdir%\Compiled HBL\hbl\tools"
-md "%fsdir%\Compiled HBL\hbl\tools\imports.config generator"
-md "%fsdir%\Compiled HBL\hbl\tools\libs generator"
-md "%fsdir%\Compiled HBL\hbl\tools\umem dumper"
-)
 echo Copying updated files to the Compiled HBL directory...
-cd "%fsdir%\hbl\eLoader\config"
-COPY imports.config_6xx "%fsdir%\Compiled HBL\hbl\config\imports.config_6xx" /y
-COPY imports.config_50x "%fsdir%\Compiled HBL\hbl\config\imports.config_50x" /y
-COPY imports.config_550 "%fsdir%\Compiled HBL\hbl\config\imports.config_550" /y
-COPY imports.config_555 "%fsdir%\Compiled HBL\hbl\config\imports.config_555" /y
-COPY imports.config_570 "%fsdir%\Compiled HBL\hbl\config\imports.config_570" /y
-cd "%fsdir%\hbl\eLoader"
-XCOPY libs_6xx "%fsdir%\Compiled HBL\hbl\libs_6xx" /y /e
-XCOPY libs_5xx "%fsdir%\Compiled HBL\hbl\libs_5xx" /y /e
-XCOPY tools "%fsdir%\Compiled HBL\hbl\tools" /y /e
-COPY hbl.bin "%fsdir%\Compiled HBL\hbl\hbl.bin" /y
-COPY menu.bin "%fsdir%\Compiled HBL\hbl\menu.bin" /y
-COPY h.bin "%fsdir%\Compiled HBL\h.bin" /y
+cd "%fsdir%\HBL\eLoader"
+XCOPY config "%fsdir%\Compiled HBL\HBL\config" /y /e /i
+XCOPY libs_6xx "%fsdir%\Compiled HBL\HBL\libs_6xx" /y /e /i
+XCOPY libs_5xx "%fsdir%\Compiled HBL\HBL\libs_5xx" /y /e /i
+XCOPY tools "%fsdir%\Compiled HBL\HBL\tools" /y /e /i
+COPY hbl.bin "%fsdir%\Compiled HBL\HBL\hbl.bin" /y /V
+COPY menu.bin "%fsdir%\Compiled HBL\HBL\menu.bin" /y /V
+COPY h.bin "%fsdir%\Compiled HBL\h.bin" /y /v
 cls
 echo ===============================================================================
 echo =============== Play Station Portable Half Byte Loader Compiler ===============
 echo ===============================================================================
 echo ============================== Cleaning files... ==============================
 echo ===============================================================================
-rd "%fsdir%\hbl\eLoader" /s /q
+rd "%fsdir%\HBL\eLoader" /s /q
 md "%fsdir%\HBL\eLoader"
 cd "%fsdir%\Temporary"
 xcopy eLoader "%fsdir%\HBL\eLoader" /y /e /h
-if exist %fsdir%\Subversion Client\trunk (
+if exist "%fsdir%\trunk" (
 echo Trunk directory detected, deleting it...
-rmdir "%fsdir%\Subversion Client\trunk" /s /q
+rmdir "%fsdir%\trunk" /s /q
 ) ELSE (
 echo Trunk directory not detected, skipping this step: delete trunk directory...
 )
