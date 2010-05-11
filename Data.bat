@@ -48,13 +48,8 @@ set /p hblversion=Please type in 1 or 2:
 if %hblversion% == 1 goto Y
 if %hblversion% == 2 goto Y
 cls
-echo Invalid answer, please try again!
-echo.
-goto Z
-:Y
-if %hblversion% == 1 set version=make
-if %hblversion% == 2 set version=make distrib
-cls
+goto I
+:J
 echo ===============================================================================
 echo =============== Play Station Portable Half Byte Loader Compiler ===============
 echo ===============================================================================
@@ -68,8 +63,73 @@ echo =============== Play Station Portable Half Byte Loader Compiler ===========
 echo ===============================================================================
 echo ========== Detecting PSP and copying files if the PSP is detected... ==========
 echo ===============================================================================
+:H
+echo Enter the normal (a-z) or capital (A-Z) letter of your PSP drive. (Good examples: i or E or f or z)
 if %pspdrive% == pspdriveletter set /p pspdrive=Please type in your PSP's drive letter and then press enter (if your PSP isn't connected, just type in 0): 
 if %pspdrive% == 0 Goto A
+if %pspdrive% == a Goto G
+if %pspdrive% == A Goto G
+if %pspdrive% == b Goto G
+if %pspdrive% == B Goto G
+if %pspdrive% == c Goto G
+if %pspdrive% == C Goto G
+if %pspdrive% == d Goto G
+if %pspdrive% == D Goto G
+if %pspdrive% == e Goto G
+if %pspdrive% == E Goto G
+if %pspdrive% == f Goto G
+if %pspdrive% == F Goto G
+if %pspdrive% == g Goto G
+if %pspdrive% == G Goto G
+if %pspdrive% == h Goto G
+if %pspdrive% == H Goto G
+if %pspdrive% == i Goto G
+if %pspdrive% == I Goto G
+if %pspdrive% == j Goto G
+if %pspdrive% == J Goto G
+if %pspdrive% == k Goto G
+if %pspdrive% == K Goto G
+if %pspdrive% == l Goto G
+if %pspdrive% == L Goto G
+if %pspdrive% == m Goto G
+if %pspdrive% == M Goto G
+if %pspdrive% == n Goto G
+if %pspdrive% == N Goto G
+if %pspdrive% == o Goto G
+if %pspdrive% == O Goto G
+if %pspdrive% == p Goto G
+if %pspdrive% == P Goto G
+if %pspdrive% == q Goto G
+if %pspdrive% == Q Goto G
+if %pspdrive% == r Goto G
+if %pspdrive% == R Goto G
+if %pspdrive% == s Goto G
+if %pspdrive% == S Goto G
+if %pspdrive% == t Goto G
+if %pspdrive% == T Goto G
+if %pspdrive% == u Goto G
+if %pspdrive% == U Goto G
+if %pspdrive% == v Goto G
+if %pspdrive% == V Goto G
+if %pspdrive% == w Goto G
+if %pspdrive% == W Goto G
+if %pspdrive% == x Goto G
+if %pspdrive% == X Goto G
+if %pspdrive% == y Goto G
+if %pspdrive% == Y Goto G
+if %pspdrive% == z Goto G
+if %pspdrive% == Z Goto G
+set pspdrive=pspdriveletter
+cls
+echo ===============================================================================
+echo =============== Play Station Portable Half Byte Loader Compiler ===============
+echo ===============================================================================
+echo ========== Detecting PSP and copying files if the PSP is detected... ==========
+echo ===============================================================================
+echo Invalid PSP letter entered, please try again!
+echo.
+goto H
+:G
 if exist %pspdrive%:\ (
 echo PSP detected, copying files...
 ) ELSE (
@@ -77,9 +137,15 @@ echo PSP not detected, skipping this step...
 goto A
 )
 cls
+echo ===============================================================================
+echo =============== Play Station Portable Half Byte Loader Compiler ===============
+echo ===============================================================================
+echo ============= Detecting Patapon 2 savegame exploit on your PSP... =============
+echo ===============================================================================
 if exist "%pspdrive%:\PSP\SAVEDATA\UCUS98732_DATA02" (
 echo The savegame exploit found on your PSP, skipping this step: copy the savegame exploit to your PSP...
 ) ELSE (
+cls
 echo ===============================================================================
 echo =============== Play Station Portable Half Byte Loader Compiler ===============
 echo ===============================================================================
@@ -103,9 +169,15 @@ xcopy "UCUS98732_DATA02" "%pspdrive%:\PSP\SAVEDATA\UCUS98732_DATA02" /y /e /h
 rmdir "trunk" /s /q
 )
 cls
+echo ===============================================================================
+echo =============== Play Station Portable Half Byte Loader Compiler ===============
+echo ===============================================================================
+echo =================== Detecting Patapon 2 Demo on your PSP... ===================
+echo ===============================================================================
 if exist "%pspdrive%:\PSP\GAME\UCUS98734" (
 echo The Patapon 2 Demo found on your PSP, skipping this step: copy the Patapon 2 Demo to your PSP...
 ) ELSE (
+cls
 echo ===============================================================================
 echo =============== Play Station Portable Half Byte Loader Compiler ===============
 echo ===============================================================================
@@ -177,3 +249,21 @@ echo ================== Completed! You can close this window now! ==============
 echo ===============================================================================
 echo Press a button or close this window!
 pause >nul
+exit
+:I
+echo ===============================================================================
+echo =============== Play Station Portable Half Byte Loader Compiler ===============
+echo ===============================================================================
+echo =============================== Select version! ===============================
+echo ===============================================================================
+echo Invalid answer, please try again!
+echo.
+goto Z
+:Y
+if %hblversion% == 1 set version=make
+if %hblversion% == 2 set version=make distrib
+cls
+if %hblversion% == 1 goto J
+if %hblversion% == 2 goto J
+cls
+goto I
