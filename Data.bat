@@ -217,6 +217,8 @@ COPY menu.bin %pspdrive%:\HBL\menu.bin /y /v
 COPY h.bin %pspdrive%:\h.bin /y /v
 COPY hbl_config.txt %pspdrive%:\HBL\hbl_config.txt /y /v
 XCOPY hbl_config_samples %pspdrive%:\HBL\hbl_config_samples /y /e /i
+COPY CHANGES %pspdrive%:\HBL\CHANGES /y /v
+COPY LICENSE %pspdrive%:\HBL\LICENSE /y /v
 :A
 echo Copying updated files to the Compiled HBL directory...
 cd "%fsdir%\HBL\eLoader"
@@ -229,6 +231,8 @@ COPY menu.bin "%fsdir%\Compiled HBL\HBL\menu.bin" /y /V
 COPY h.bin "%fsdir%\Compiled HBL\h.bin" /y /v
 COPY hbl_config.txt "%fsdir%\Compiled HBL\HBL\hbl_config.txt" /y /v
 XCOPY hbl_config_samples "%fsdir%\Compiled HBL\HBL\hbl_config_samples" /y /e /i
+COPY CHANGES "%fsdir%\Compiled HBL\HBL\CHANGES" /y /v
+COPY LICENSE "%fsdir%\Compiled HBL\HBL\LICENSE" /y /v
 cls
 echo ===============================================================================
 echo =============== Play Station Portable Half Byte Loader Compiler ===============
