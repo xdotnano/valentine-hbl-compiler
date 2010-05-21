@@ -268,7 +268,7 @@ echo Invalid answer, please try again!
 echo.
 goto Z
 :Y
-if %hblversion% == 1 set version=make
+if %hblversion% == 1 set version=make dev
 if %hblversion% == 2 set version=make distrib
 cls
 if %hblversion% == 1 goto J
