@@ -57,6 +57,9 @@ echo =============================== Compiling files ===========================
 echo ===============================================================================
 cd %fsdir%\HBL\eLoader
 %version%
+cd "%fsdir%\HBL\eLoader"
+copy svnversion.h "%fsdir%\Temporary\svnversion.h" /y /v
+copy svnversion.txt "%fsdir%\Temporary\svnversion.txt" /y /v
 cls
 echo ===============================================================================
 echo =============== Play Station Portable Half Byte Loader Compiler ===============
@@ -243,6 +246,8 @@ rd "%fsdir%\HBL\eLoader" /s /q
 md "%fsdir%\HBL\eLoader"
 cd "%fsdir%\Temporary"
 xcopy eLoader "%fsdir%\HBL\eLoader" /y /e /h
+copy svnversion.h "%fsdir%\HBL\eLoader\svnversion.h" /y /v
+copy svnversion.txt "%fsdir%\HBL\eLoader\svnversion.txt" /y /v
 if exist "%fsdir%\trunk" (
 echo Trunk directory detected, deleting it...
 rmdir "%fsdir%\trunk" /s /q
