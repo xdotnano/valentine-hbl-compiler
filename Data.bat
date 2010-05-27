@@ -9,19 +9,19 @@ echo =============== Play Station Portable Half Byte Loader Compiler ===========
 echo ===============================================================================
 echo ============================== Updating files... ==============================
 echo ===============================================================================
-if exist %fsdir%\hbl (
-echo HBL directory detected, skipping SVN checkout, updating...
+if exist "%fsdir%\HBL Source" (
+echo HBL Source directory detected, skipping SVN checkout, updating...
 goto C
 ) ELSE (
-echo HBL directory isn't detected, SVN checkout started
-md "%fsdir%\HBL"
+echo HBL Source directory isn't detected, SVN checkout started
+md "%fsdir%\HBL Source"
 cd "%fsdir%"
-"%fsdir%\Subversion Client\svn.exe" co http://valentine-hbl.googlecode.com/svn/trunk
-xcopy trunk "%fsdir%\HBL" /y /e /h
+"%fsdir%\Subversion Client\svn.exe" co http://valentine-hbl.googlecode.com/svn/trunk/eLoader
+xcopy eLoader "%fsdir%\HBL Source" /y /e /h
 goto D
 )
 :C
-cd "%fsdir%/hbl"
+cd "%fsdir%/HBL Source"
 "%fsdir%\Subversion Client\svn.exe" up
 :D
 if exist "%fsdir%\Temporary" (
@@ -31,7 +31,7 @@ echo Temporary folder not detected, creating it...
 md "%fsdir%\Temporary"
 )
 cd "%fsdir%\Temporary"
-xcopy "%fsdir%\hbl\eLoader" eLoader /y /e /h /i
+xcopy "%fsdir%\HBL Source" eLoader /y /e /h /i
 cls
 echo ===============================================================================
 echo =============== Play Station Portable Half Byte Loader Compiler ===============
@@ -55,9 +55,9 @@ echo =============== Play Station Portable Half Byte Loader Compiler ===========
 echo ===============================================================================
 echo =============================== Compiling files ===============================
 echo ===============================================================================
-cd %fsdir%\HBL\eLoader
+cd "%fsdir%\HBL Source"
 %version%
-cd "%fsdir%\HBL\eLoader"
+cd "%fsdir%\HBL Source"
 copy svnversion.h "%fsdir%\Temporary\svnversion.h" /y /v
 copy svnversion.txt "%fsdir%\Temporary\svnversion.txt" /y /v
 cls
@@ -210,7 +210,7 @@ echo =============== Play Station Portable Half Byte Loader Compiler ===========
 echo ===============================================================================
 echo =========================== Copying HBL to your PSP ===========================
 echo ===============================================================================
-cd "%fsdir%\hbl\eLoader"
+cd "%fsdir%\HBL Source"
 xcopy config %pspdrive%:\HBL\config /y /e /i
 XCOPY libs_6xx %pspdrive%:\HBL\libs_6xx /y /e /i
 XCOPY libs_5xx %pspdrive%:\HBL\libs_5xx /y /e /i
@@ -224,7 +224,7 @@ COPY CHANGES %pspdrive%:\HBL\CHANGES /y /v
 COPY LICENSE %pspdrive%:\HBL\LICENSE /y /v
 :A
 echo Copying updated files to the Compiled HBL directory...
-cd "%fsdir%\HBL\eLoader"
+cd "%fsdir%\HBL Source"
 XCOPY config "%fsdir%\Compiled HBL\HBL\config" /y /e /i
 XCOPY libs_6xx "%fsdir%\Compiled HBL\HBL\libs_6xx" /y /e /i
 XCOPY libs_5xx "%fsdir%\Compiled HBL\HBL\libs_5xx" /y /e /i
@@ -242,17 +242,25 @@ echo =============== Play Station Portable Half Byte Loader Compiler ===========
 echo ===============================================================================
 echo ============================== Cleaning files... ==============================
 echo ===============================================================================
-rd "%fsdir%\HBL\eLoader" /s /q
-md "%fsdir%\HBL\eLoader"
+rd "%fsdir%\HBL Source" /s /q
+md "%fsdir%\HBL Source"
 cd "%fsdir%\Temporary"
-xcopy eLoader "%fsdir%\HBL\eLoader" /y /e /h
-copy svnversion.h "%fsdir%\HBL\eLoader\svnversion.h" /y /v
-copy svnversion.txt "%fsdir%\HBL\eLoader\svnversion.txt" /y /v
-if exist "%fsdir%\trunk" (
-echo Trunk directory detected, deleting it...
-rmdir "%fsdir%\trunk" /s /q
+xcopy eLoader "%fsdir%\HBL Source" /y /e /h
+copy svnversion.h "%fsdir%\HBL Source\svnversion.h" /y /v
+copy svnversion.txt "%fsdir%\HBL Source\svnversion.txt" /y /v
+if exist "%fsdir%\eLoader" (
+echo eLoader directory detected, deleting it...
+rmdir "%fsdir%\eLoader" /s /q
 ) ELSE (
-echo Trunk directory not detected, skipping this step: delete trunk directory...
+echo eLoader directory not detected, skipping this step: delete eLoader directory...
+)
+if exist "%fsdir%\HBL" (
+echo Old HBL source directory detected, deleting it...
+rmdir "%fsdir%\HBL\eLoader" /s /q
+rmdir "%fsdir%\HBL\SDK" /s /q
+rmdir "%fsdir%\HBL" /s /q
+) ELSE (
+echo Old HBL source directory not detected, skipping this step: delete HBL directory...
 )
 cls
 echo ===============================================================================
