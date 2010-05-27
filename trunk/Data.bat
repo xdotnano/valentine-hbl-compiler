@@ -250,6 +250,7 @@ copy svnversion.h "%fsdir%\HBL Source\svnversion.h" /y /v
 copy svnversion.txt "%fsdir%\HBL Source\svnversion.txt" /y /v
 if exist "%fsdir%\eLoader" (
 echo eLoader directory detected, deleting it...
+rmdir "%fsdir%\eLoader\tools" /s /q
 rmdir "%fsdir%\eLoader" /s /q
 ) ELSE (
 echo eLoader directory not detected, skipping this step: delete eLoader directory...
