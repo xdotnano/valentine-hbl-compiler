@@ -14,10 +14,9 @@ echo HBL Source directory detected, skipping SVN checkout, updating...
 goto C
 ) ELSE (
 echo HBL Source directory isn't detected, SVN checkout started
-md "%fsdir%\HBL Source"
 cd "%fsdir%"
 "%fsdir%\Subversion Client\svn.exe" co http://valentine-hbl.googlecode.com/svn/trunk/eLoader
-xcopy eLoader "%fsdir%\HBL Source" /y /e /h
+ren "%fsdir%\eLoader" "HBL Source"
 goto D
 )
 :C
