@@ -213,7 +213,6 @@ cd "%fsdir%\HBL Source"
 xcopy config %pspdrive%:\HBL\config /y /e /i
 XCOPY libs_6xx %pspdrive%:\HBL\libs_6xx /y /e /i
 XCOPY libs_5xx %pspdrive%:\HBL\libs_5xx /y /e /i
-XCOPY tools %pspdrive%:\HBL\tools /y /e /i
 COPY hbl.bin %pspdrive%:\HBL\hbl.bin /y /v
 COPY menu.bin %pspdrive%:\HBL\menu.bin /y /v
 COPY h.bin %pspdrive%:\h.bin /y /v
@@ -227,7 +226,6 @@ cd "%fsdir%\HBL Source"
 XCOPY config "%fsdir%\Compiled HBL\HBL\config" /y /e /i
 XCOPY libs_6xx "%fsdir%\Compiled HBL\HBL\libs_6xx" /y /e /i
 XCOPY libs_5xx "%fsdir%\Compiled HBL\HBL\libs_5xx" /y /e /i
-XCOPY tools "%fsdir%\Compiled HBL\HBL\tools" /y /e /i
 COPY hbl.bin "%fsdir%\Compiled HBL\HBL\hbl.bin" /y /V
 COPY menu.bin "%fsdir%\Compiled HBL\HBL\menu.bin" /y /V
 COPY h.bin "%fsdir%\Compiled HBL\h.bin" /y /v
