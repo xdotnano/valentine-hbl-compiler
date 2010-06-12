@@ -11,7 +11,7 @@ set pspdrive=pspdriveletter
 echo Please select a version of the HBL (type in your answer next to set hblversion=)
 echo Good examples: 1 or 2
 echo Bad examples: 1, or 1. or 3
-echo 1: Development version (recommended, default setting)
-echo 2: End user version
+echo 1: Development version
+echo 2: End user version (recommended)
 
-set hblversion=1
+set hblversion=2
