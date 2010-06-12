@@ -41,8 +41,8 @@ if %hblversion% == 1 goto Y
 if %hblversion% == 2 goto Y
 :Z
 echo What type of HBL do you want?
-echo 1: Development version (recommended)
-echo 2: End user version
+echo 1: Development version
+echo 2: End user version (recommended)
 set /p hblversion=Please type in 1 or 2: 
 if %hblversion% == 1 goto Y
 if %hblversion% == 2 goto Y
