@@ -239,7 +239,7 @@ COPY hbl_config.txt "%fsdir%\Compiled HBL\HBL\hbl_config.txt" /y /v
 XCOPY hbl_config_samples "%fsdir%\Compiled HBL\HBL\hbl_config_samples" /y /e /i
 COPY CHANGES "%fsdir%\Compiled HBL\HBL\CHANGES" /y /v
 COPY LICENSE "%fsdir%\Compiled HBL\HBL\LICENSE" /y /v
-cd "%fsdir%\Compiled HBL"
+cd "%fsdir%\Compiled HBL\HBL"
 md "menu"
 cd "%fsdir%\HBL Source\menu"
 COPY EBOOT.PBP %fsdir%\Compiled HBL\HBL\menu\EBOOT.PBP" /y /v
