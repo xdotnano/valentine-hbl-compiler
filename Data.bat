@@ -222,7 +222,7 @@ COPY hbl_config.txt %pspdrive%:\HBL\hbl_config.txt /y /v
 XCOPY hbl_config_samples %pspdrive%:\HBL\hbl_config_samples /y /e /i
 COPY CHANGES %pspdrive%:\HBL\CHANGES /y /v
 COPY LICENSE %pspdrive%:\HBL\LICENSE /y /v
-cd "%pspdrive%\HBL"
+cd "%pspdrive%:\HBL"
 md "menu"
 cd "%fsdir%\HBL Source\menu"
 COPY EBOOT.PBP "%pspdrive%:\HBL\menu\EBOOT.PBP" /y /v
