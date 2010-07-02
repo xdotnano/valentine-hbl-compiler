@@ -222,7 +222,10 @@ COPY hbl_config.txt %pspdrive%:\HBL\hbl_config.txt /y /v
 XCOPY hbl_config_samples %pspdrive%:\HBL\hbl_config_samples /y /e /i
 COPY CHANGES %pspdrive%:\HBL\CHANGES /y /v
 COPY LICENSE %pspdrive%:\HBL\LICENSE /y /v
-XCOPY menu %pspdrive%:\HBL\menu /y /e /i
+cd "%pspdrive%\HBL"
+md "menu"
+cd "%fsdir%\HBL Source\menu"
+COPY EBOOT.PBP "%pspdrive%:\HBL\menu\EBOOT.PBP" /y /v
 :A
 echo Copying updated files to the Compiled HBL directory...
 cd "%fsdir%\HBL Source"
@@ -236,7 +239,10 @@ COPY hbl_config.txt "%fsdir%\Compiled HBL\HBL\hbl_config.txt" /y /v
 XCOPY hbl_config_samples "%fsdir%\Compiled HBL\HBL\hbl_config_samples" /y /e /i
 COPY CHANGES "%fsdir%\Compiled HBL\HBL\CHANGES" /y /v
 COPY LICENSE "%fsdir%\Compiled HBL\HBL\LICENSE" /y /v
-XCOPY menu "%fsdir%\Compiled HBL\HBL\menu" /y /e /i
+cd "%fsdir%\Compiled HBL"
+md "menu"
+cd "%fsdir%\HBL Source\menu"
+COPY EBOOT.PBP %fsdir%\Compiled HBL\HBL\menu\EBOOT.PBP" /y /v
 cls
 echo ===============================================================================
 echo =============== Play Station Portable Half Byte Loader Compiler ===============
